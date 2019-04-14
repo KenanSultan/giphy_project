@@ -8,6 +8,7 @@ $(document).ready(function () {
     button_generator()
 
     function button_generator() {
+        $(".buttons").empty()
         for (i in animal_array) {
             let buton = $("<button>").addClass("btn btn-info m-1 animal-btn px-4").text(animal_array[i])
             $(".buttons").append(buton)
@@ -19,14 +20,17 @@ $(document).ready(function () {
 
         var name = $("#name-input").val()
         $("#name-input").val("")
-        let buton = $("<button>").addClass("btn btn-info m-1 animal-btn px-4").text(name)
-        $(".buttons").append(buton)
 
         animal_array.push(name)
+        button_generator()
+
         localStorage.setItem("animals", JSON.stringify(animal_array))
+        $(".animal-btn").on("click", click_func )
     })
 
-    $(".animal-btn").on("click", function () {
+    $(".animal-btn").on("click", click_func )
+
+    function click_func() {
         $(".gifs").empty()
         $.ajax({
             url: "https://api.giphy.com/v1/gifs/search",
@@ -59,5 +63,6 @@ $(document).ready(function () {
                 }  
             })
         })
-    })
+
+    }
 })
