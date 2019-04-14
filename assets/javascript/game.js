@@ -43,8 +43,8 @@ $(document).ready(function () {
             console.log(resp)
             for (i in resp.data) {
                 let yazi = $("<p>").text("Rating: " + resp.data[i].rating)
-                let resim = $("<img>").attr("src", resp.data[i].images.fixed_height.url)
-                resim.attr("data-condition", "move")
+                let resim = $("<img>").attr("src", resp.data[i].images.fixed_height_still.url)
+                resim.attr("data-condition", "still")
                 resim.attr("data-move", resp.data[i].images.fixed_height.url)
                 resim.attr("data-still", resp.data[i].images.fixed_height_still.url)
                 
@@ -63,6 +63,5 @@ $(document).ready(function () {
                 }  
             })
         })
-
     }
 })
