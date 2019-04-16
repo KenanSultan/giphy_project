@@ -14,4 +14,4 @@ When user click the image, app changes image source to gif version.
 
 1. Bootstrap 4.3.1
 2. jQuery 2.2.4
-3. Google Firebase 4.4.0
+3. Ajax
